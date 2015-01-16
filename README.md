@@ -9,8 +9,11 @@ password protected repo script
 * edit `config.php`, what you should do are //commented
 * move all the files to the repo directory
 * run `setup.sh`
+* make whoever runs php able to write to auth, you can usually 
+`chown $(whoami):www-data; chmod u+rwx,g+rwx,a+rx-w`
 
 ##todo
 
 * google authenticator 2/1fa support
 * different users for each package
+* remove last step from setup; add it to the setup script
