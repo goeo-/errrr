@@ -1,0 +1,6 @@
+RewriteEngine On
+
+RewriteBase /beta/
+RewriteRule ^.+\.deb$ main.php?request=%{REQUEST_FILENAME}
+
+Options All -Indexes
