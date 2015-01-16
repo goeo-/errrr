@@ -9,3 +9,8 @@ password protected repo script
 * edit `config.php`, what you should do are //commented
 * move all the files to the repo directory
 * run `setup.sh`
+
+##todo
+
+* google authenticator 2/1fa support
+* different users for each package
