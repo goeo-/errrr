@@ -46,7 +46,7 @@
 				var FD  = new FormData(form);
 				XHR.addEventListener("load", function(event) {
 				if(event.target.responseText == "success"){
-					document.getElementById("div").innerHTML = "<p role=}\"footer\">you have successfully authorized. you can download the package now.</p>";
+					document.getElementById("div").innerHTML = "<p role=\"footer\">you have successfully authorized. you can download the package now.</p>";
 				}
 				else if(event.target.responseText == "nope"){
 					document.getElementById("div").innerHTML = "<p role=\"footer\">wrong username and/or password</p>";
