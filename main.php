@@ -26,7 +26,7 @@ if (!file_exists($request) && $extension == "deb") {
 
 if (file_exists("auth/$ip")) {
 	if ($extension) {
-		header("Content-Type: application/vnd.debian.binary-package]");
+		header("Content-Type: application/vnd.debian.binary-package");
 		header("Content-Disposition: attachment; filename=\"$request\"");
 		header("Content-Length: ".filesize($request));
 	}
