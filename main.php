@@ -42,7 +42,7 @@ if (file_exists("auth/$ip")) {
 	unlink("auth/$ip");
 }
 else{
-	error("403 Not Authentified");
+	error("403 Not Authenticated");
 }
 
 function error($exit) {
