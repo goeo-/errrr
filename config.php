@@ -1,9 +1,17 @@
 <?php
+<?php
+
 $users = array(
-	"user1" => "9c2f708fe1a002528f928149b500de301616313ae8454fa0b0907de8c28c3d3b",
-	"user2" => "ae7aa35102f486eaa8321d609c78179226a8a991bd3914c1c0f126dfa66df418"
+	"user1" => "b747047a1e4c9442afd96508cf8603e7ef92ed209a473cb58943bc604c6719b8",
+	"user2" => "b747047a1e4c9442afd96508cf8603e7ef92ed209a473cb58943bc604c6719b8"
 );
 //add users in the users array. keys are usernames, values are twice sha256'd passwords.
+
+$udids = array(
+"user1" => array("b747047a1e4c9442afd96508cf8603e7ef92ed209a473cb58943bc604c6719b8", "b747047a1e4c9442afd96508cf8603e7ef92ed209a473cb58943bc604c6719b8"),
+"user2" => array("b747047a1e4c9442afd96508cf8603e7ef92ed209a473cb58943bc604c6719b8")
+);
+//add the same username as well as their udid(s) once sha256'd in an array (in order to support multiple devices)
 
 $uniquepackages = FALSE;
 //if set to TRUE, pythech-repo will look for (packagename).(username),

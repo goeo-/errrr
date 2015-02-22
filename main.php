@@ -25,6 +25,12 @@ if (!file_exists($request) && $extension == "deb") {
 }
 
 if (file_exists("auth/$ip")) {
+	$username = file_get_contents("auth/$ip");
+	if (!checkUDID($username) || (time()-filemtime("auth/$ip") > 300)) {
+		unlink("auth/$ip");
+		error("403 Not Authenticated");
+		return;
+	}
 	if ($extension) {
 		header("Content-Type: application/vnd.debian.binary-package");
 		header("Content-Disposition: attachment; filename=\"$request\"");
@@ -48,5 +54,10 @@ else{
 function error($exit) {
 	global $protocol;
 	header(sprintf("$protocol $exit"));
+}
+
+function checkUDID($username) {
+	global $udids, $udid;
+	return array_key_exists($username, $udids) && in_array(hash('sha256', $udid), $udids[$username]);
 }
 ?>

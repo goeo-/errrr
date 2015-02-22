@@ -38,7 +38,6 @@
 			</ul>
 		</form>
 	</div>
-	<script type="text/javascript" src="https://raw.githubusercontent.com/Caligatio/jsSHA/master/src/sha256.js"></script>
 	<script type="text/javascript">
 		window.addEventListener("load", function () {
 			function sendData() {
@@ -46,10 +45,10 @@
 				var FD  = new FormData(form);
 				XHR.addEventListener("load", function(event) {
 				if(event.target.responseText == "success"){
-					document.getElementById("div").innerHTML = "<p role=\"footer\">you have successfully authorized. you can download the package now.</p>";
+					document.getElementById("div").innerHTML = "<ul><li><p>&#10003; You have successfully authorized. You can download the package now.</p></li></ul>";
 				}
 				else if(event.target.responseText == "nope"){
-					document.getElementById("div").innerHTML = "<p role=\"footer\">wrong username and/or password</p>";
+					document.getElementById("div").innerHTML = "<ul><li><p>&#10006; Wrong username and/or password</p></li></ul>";
 				}
 				});
 				XHR.addEventListener("error", function(event) {
@@ -61,8 +60,6 @@
 			var form = document.getElementById("form");
 			form.addEventListener("submit", function (event) {
 				event.preventDefault();
-				var ali = new jsSHA(document.getElementById('password').value, "TEXT");
-				document.getElementById('password').value = ali.getHash("SHA-256", "HEX");
 				sendData();
 			});
 		});
