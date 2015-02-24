@@ -2,6 +2,8 @@
 
 password protected repo script
 
+![LEAK ENDER](http://i.imgur.com/pM2z1GN.png)
+
 ##setup
 
 * make a regular apt repo.
