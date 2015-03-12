@@ -15,7 +15,7 @@
 					document.getElementById("div").innerHTML = "<panel><fieldset><div><p>&#10003; You have successfully authorized. You can download the package now.</p></div></fieldset></panel>";
 				}
 				else if(event.target.responseText == "nope"){
-					document.getElementById("div").innerHTML = "<panel><fieldset><div><p>&#10006; Wrong username and/or password</p></div></fieldset></panel>";
+					document.getElementById("div").innerHTML = "<panel><fieldset><div><p>&#10006; Wrong username and/or password. Please try again later.</p></div></fieldset></panel>";
 				}
 				});
 				XHR.addEventListener("error", function(event) {
@@ -35,6 +35,12 @@
 	<style>
 		input[type="submit"] {
 			background:none;
+		}
+		.cytyle-flat input[type="submit"] {
+			padding-right:170px;
+		}
+		.cytyle-faux input[type="submit"] {
+			padding-right:140px;
 		}
 		.cytyle-flat input[type="submit"] {
 			color:#007aff;
@@ -59,7 +65,7 @@
 		.cytyle-flat fieldset.half, .cytyle-flat fieldset.half {
 			margin-bottom:-10px;
 		}
-		.cytyle-flat fieldset.authenticate {
+		.cytyle-flat fieldset.auth {
 			margin-top:-10px;
 		}
 		#div {
@@ -76,7 +82,7 @@
 			<label>Password Protected Package</label>
 			<fieldset class="half"><a><div><div><label><input type="text" name="username" placeholder="Username"/></label></div></div></a></fieldset>
 			<fieldset class="more"><a><div><div><label><input type="password" name="password" id="password" placeholder="Password"/></label></div></div></a></fieldset>
-			<fieldset class="authenticate"><a href target="_self"><div><div><label><input type="submit" name="submit" role="button" value="Authenticate" /></label></div></div></a></fieldset>
+			<fieldset class="auth"><a href target="_self"><div><div><label><input type="submit" name="submit" role="button" value="Authenticate" /></label></div></div></a></fieldset>
 			<p>If you don't have access, but you do want to help with testing this package, please email me at email@example.com.</p>
 		</panel>
 
