@@ -1,5 +1,4 @@
 <?php
-<?php
 
 $users = array(
 	"user1" => "b747047a1e4c9442afd96508cf8603e7ef92ed209a473cb58943bc604c6719b8",
