@@ -76,7 +76,7 @@
 			<label>Password Protected Package</label>
 			<fieldset class="half"><a><div><div><label><input type="text" name="username" placeholder="Username"/></label></div></div></a></fieldset>
 			<fieldset class="more"><a><div><div><label><input type="password" name="password" id="password" placeholder="Password"/></label></div></div></a></fieldset>
-			<fieldset class="authenticate"><a href><div><div><label><input type="submit" name="submit" role="button" value="Authenticate" /></label></div></div></a></fieldset>
+			<fieldset class="authenticate"><a href target="_self"><div><div><label><input type="submit" name="submit" role="button" value="Authenticate" /></label></div></div></a></fieldset>
 			<p>If you don't have access, but you do want to help with testing this package, please email me at email@example.com.</p>
 		</panel>
 
