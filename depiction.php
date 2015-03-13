@@ -25,7 +25,7 @@
 					document.getElementById("div").innerHTML = '<panel class="auth"><fieldset><div><p>&#10003; You have successfully authorized. You can download the package now.</p></div></fieldset></panel>';
 				}
 				else if(event.target.responseText == "nope"){
-					document.getElementById("div").innerHTML = '<panel class="auth"><fieldset><div><p>&#10006; Wrong username and/or password. Please try again later.</p></div></fieldset></panel>';
+					document.getElementById("div").innerHTML = '<panel class="auth"><fieldset><div><p>&#10006; Wrong username and/or password. Please try again later.</p></div></fieldset><p>If you don&#39;t have access, but you do want to help with testing this package, please email me at email@example.com.</p></panel>';
 				}
 				});
 				XHR.addEventListener("error", function(event) {
@@ -89,7 +89,7 @@
 		$ip = $_SERVER['REMOTE_ADDR'];
 		if (file_exists("auth/$ip") && (time()-filemtime("auth/$ip") < 300)) {
 			$username = file_get_contents("auth/$ip");
-				echo('<panel class="auth"><fieldset><div><p>&#10003; Welcome back, '.$username.'. You are still successfully authorized.</p></div></fieldset></panel>');
+				echo('<panel class="auth"><fieldset><div><p>&#10003; Welcome back, '.$username.'.<br>You can download the package now.</p></div></fieldset></panel>');
 		} else {
 				echo('<div id="div"><!-- div that js modifies -->
 					<form id="form">
