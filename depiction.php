@@ -12,10 +12,10 @@
 				var FD  = new FormData(form);
 				XHR.addEventListener("load", function(event) {
 				if(event.target.responseText == "success"){
-					document.getElementById("div").innerHTML = "<panel><fieldset><div><p>&#10003; You have successfully authorized. You can download the package now.</p></div></fieldset></panel>";
+					document.getElementById("div").innerHTML = '<panel class="auth"><fieldset><div><p>&#10003; You have successfully authorized. You can download the package now.</p></div></fieldset></panel>';
 				}
 				else if(event.target.responseText == "nope"){
-					document.getElementById("div").innerHTML = "<panel><fieldset><div><p>&#10006; Wrong username and/or password. Please try again later.</p></div></fieldset></panel>";
+					document.getElementById("div").innerHTML = '<panel class="auth"><fieldset><div><p>&#10006; Wrong username and/or password. Please try again later.</p></div></fieldset></panel>';
 				}
 				});
 				XHR.addEventListener("error", function(event) {
@@ -68,8 +68,8 @@
 		.cytyle-flat fieldset.auth {
 			margin-top:-10px;
 		}
-		#div {
-			margin-bottom:-7px;
+		panel.auth {
+			margin-bottom:-9px;
 		}
 	</style>
 
@@ -79,12 +79,12 @@
 		$ip = $_SERVER['REMOTE_ADDR'];
 		if (file_exists("auth/$ip") && (time()-filemtime("auth/$ip") < 300)) {
 			$username = file_get_contents("auth/$ip");
-				echo("<panel><fieldset><div><p>&#10003; Welcome back, ".$username.". You are successfully authorized.</p></div></fieldset></panel>");
+				echo('<panel class="auth"><fieldset><div><p>&#10003; Welcome back, '.$username.'. You are successfully authorized.</p></div></fieldset></panel>');
 		} else {
 				echo('<div id="div"><!-- div that js modifies -->
 					<form id="form">
 
-						<panel>
+						<panel class="auth">
 							<label>Password Protected Package</label>
 							<fieldset class="half"><a><div><div><label><input type="text" name="username" placeholder="Username"/></label></div></div></a></fieldset>
 							<fieldset class="more"><a><div><div><label><input type="password" name="password" id="password" placeholder="Password"/></label></div></div></a></fieldset>
