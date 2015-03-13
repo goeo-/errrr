@@ -75,19 +75,27 @@
 
 <body class="pinstripe">
 
-	<div id="div"> <!-- div that js modifies -->
-	<form id="form">
+	<?php
+		$ip = $_SERVER['REMOTE_ADDR'];
+		if (file_exists("auth/$ip") && (time()-filemtime("auth/$ip") < 300)) {
+			$username = file_get_contents("auth/$ip");
+				echo("<panel><fieldset><div><p>&#10003; Welcome back, ".$username.". You are successfully authorized.</p></div></fieldset></panel>");
+		} else {
+				echo('<div id="div"><!-- div that js modifies -->
+					<form id="form">
 
-		<panel>
-			<label>Password Protected Package</label>
-			<fieldset class="half"><a><div><div><label><input type="text" name="username" placeholder="Username"/></label></div></div></a></fieldset>
-			<fieldset class="more"><a><div><div><label><input type="password" name="password" id="password" placeholder="Password"/></label></div></div></a></fieldset>
-			<fieldset class="auth"><a href target="_self"><div><div><label><input type="submit" name="submit" role="button" value="Authenticate" /></label></div></div></a></fieldset>
-			<p>If you don't have access, but you do want to help with testing this package, please email me at email@example.com.</p>
-		</panel>
+						<panel>
+							<label>Password Protected Package</label>
+							<fieldset class="half"><a><div><div><label><input type="text" name="username" placeholder="Username"/></label></div></div></a></fieldset>
+							<fieldset class="more"><a><div><div><label><input type="password" name="password" id="password" placeholder="Password"/></label></div></div></a></fieldset>
+							<fieldset class="auth"><a href target="_self"><div><div><label><input type="submit" name="submit" role="button" value="Authenticate" /></label></div></div></a></fieldset>
+							<p>If you don&#39;t have access, but you do want to help with testing this package, please email me at email@example.com.</p>
+						</panel>
 
-	</form>
-	</div>
+					</form>
+					</div>');
+		}
+	?>
 
 </body>
 
