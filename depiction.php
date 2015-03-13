@@ -6,6 +6,16 @@
 </head>
 
 	<script type="text/javascript">
+		if (navigator.userAgent.search(/Cydia/) == -1) {
+			document.write('<style type="text/css"> label.ppp { display:block; } </style>');
+		}
+		else {
+			document.write('<style type="text/css"> .cytyle-flat panel.auth { margin-top:-10px; } </style>');
+			document.write('<style type="text/css"> .cytyle-flat label.ppp { display:none; } </style>');
+		}
+	</script>
+
+	<script type="text/javascript">
 		window.addEventListener("load", function () {
 			function sendData() {
 				var XHR = new XMLHttpRequest();
@@ -37,7 +47,7 @@
 			background:none;
 		}
 		.cytyle-flat input[type="submit"] {
-			padding-right:170px;
+			padding-right:165px;
 		}
 		.cytyle-faux input[type="submit"] {
 			padding-right:140px;
@@ -79,13 +89,13 @@
 		$ip = $_SERVER['REMOTE_ADDR'];
 		if (file_exists("auth/$ip") && (time()-filemtime("auth/$ip") < 300)) {
 			$username = file_get_contents("auth/$ip");
-				echo('<panel class="auth"><fieldset><div><p>&#10003; Welcome back, '.$username.'. You are successfully authorized.</p></div></fieldset></panel>');
+				echo('<panel class="auth"><fieldset><div><p>&#10003; Welcome back, '.$username.'. You are still successfully authorized.</p></div></fieldset></panel>');
 		} else {
 				echo('<div id="div"><!-- div that js modifies -->
 					<form id="form">
 
 						<panel class="auth">
-							<label>Password Protected Package</label>
+							<label class="ppp">Password Protected Package</label>
 							<fieldset class="half"><a><div><div><label><input type="text" name="username" placeholder="Username"/></label></div></div></a></fieldset>
 							<fieldset class="more"><a><div><div><label><input type="password" name="password" id="password" placeholder="Password"/></label></div></div></a></fieldset>
 							<fieldset class="auth"><a href target="_self"><div><div><label><input type="submit" name="submit" role="button" value="Authenticate" /></label></div></div></a></fieldset>
