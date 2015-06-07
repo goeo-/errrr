@@ -19,7 +19,6 @@ password protected repo script
 
 * google authenticator 2/1fa support
 * different users for each package
-* remove last step from setup; add it to the setup script
 
 ##license
 ```
