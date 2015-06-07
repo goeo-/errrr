@@ -1,4 +1,5 @@
 <?php
+include("config.php");
 $protocol = $_SERVER["SERVER_PROTOCOL"];
 $udid = $_SERVER["HTTP_X_UNIQUE_ID"];
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -57,7 +58,10 @@ function error($exit) {
 }
 
 function checkUDID($username) {
-	global $udids, $udid;
+	global $checkudids, $udids, $udid;
+	if(!$checkudids){
+		return TRUE; 
+	}
 	return array_key_exists($username, $udids) && in_array(hash('sha256', $udid), $udids[$username]);
 }
 ?>
