@@ -39,11 +39,11 @@ if (file_exists("auth/$ip")) {
 	}
 	switch($uniquepackages){
 		case TRUE:
-			echo readfile("$request.".file_get_contents("auth/$ip"));
+			echo file_get_contents($request.".".file_get_contents("auth/$ip")));
 			break;
 		default:
 		case FALSE:
-			echo readfile($request);
+			echo file_get_contents($request);
 			break;
 	}
 	unlink("auth/$ip");
