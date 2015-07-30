@@ -25,6 +25,11 @@ if (!file_exists($request) && $extension == "deb") {
 	}
 }
 
+if(!startsWith(realpath($request),realpath(".")){
+	error("403 Stop!!! Hacking!!!!");
+	return;
+}
+
 if (file_exists("auth/$ip")) {
 	$username = file_get_contents("auth/$ip");
 	if (!checkUDID($username) || (time()-filemtime("auth/$ip") > 300)) {
@@ -48,7 +53,7 @@ if (file_exists("auth/$ip")) {
 	}
 	unlink("auth/$ip");
 }
-else{
+else {
 	error("403 Not Authenticated");
 }
 
@@ -63,5 +68,10 @@ function checkUDID($username) {
 		return TRUE; 
 	}
 	return array_key_exists($username, $udids) && in_array(hash('sha256', $udid), $udids[$username]);
+}
+
+function startsWith($haystack, $needle) {
+     $length = strlen($needle);
+     return (substr($haystack, 0, $length) === $needle);
 }
 ?>
